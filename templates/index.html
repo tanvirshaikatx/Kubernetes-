@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes Test App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        // Show welcome popup on page load
+        window.onload = function () {
+            alert("👋 Welcome to the Kubernetes Test Application!");
+        };
+
+        // Disable button when form is submitting
+        function handleSubmit(form) {
+            const button = form.querySelector("button");
+            button.disabled = true;
+            button.innerText = "Submitting...";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Kubernetes Test Application</h1>
+        <form method="POST" onsubmit="handleSubmit(this)">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
